@@ -1,0 +1,23 @@
+.InstaThumbs {
+    height: 81px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.Thumbnail {
+    height: 60px;
+    width: 60px;
+}
+
+.Active {
+    opacity: 1;
+    border-width: 2px;
+    border-style: solid;
+    border-image: linear-gradient(45deg, #F58529, #8134AF) 1;
+}
+
+.Inactive {
+    opacity: 0.5;
+}

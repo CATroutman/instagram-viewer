@@ -1,0 +1,9 @@
+.InstaImage {
+    height: 350px;
+    background-color: black;
+    display: flex;
+}
+
+.Image {
+    width: 100%;
+}

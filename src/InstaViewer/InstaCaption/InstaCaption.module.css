@@ -1,0 +1,15 @@
+.InstaCaption {
+    height: 120px;
+    box-sizing: border-box;
+    padding: 5px;
+    font-size: small;
+    overflow: auto;
+    -ms-overflow-style: none;
+    overflow: -mos-scrollbars-none;
+    border-bottom: 1px solid #eee;
+}
+
+.InstaCaption::-webkit-scrollbar {
+    display: none;
+}
+
