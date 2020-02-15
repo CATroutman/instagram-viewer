@@ -5,7 +5,7 @@ import InstaViewer from './InstaViewer/InstaViewer';
 
 function App() {
   return (
-    <InstaViewer username='Journey_Ministry' />
+    <InstaViewer username='liverpoolfc' />
   );
 }
 

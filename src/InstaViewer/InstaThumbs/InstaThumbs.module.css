@@ -9,6 +9,9 @@
 .Thumbnail {
     height: 60px;
     width: 60px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
 }
 
 .Active {

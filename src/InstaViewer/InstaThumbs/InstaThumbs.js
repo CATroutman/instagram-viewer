@@ -17,10 +17,9 @@ const instaThumbs = (props) => {
         }
 
         const img = (
-            <img
+            <div
                 className={imgClasses.join(' ')}
-                src={src}
-                alt="Thumbnail for post"
+                style={{backgroundImage: `url(${src})`}}
                 key={index}
                 onClick={() => props.clicked(index)} />
         );

@@ -11,9 +11,8 @@ const instaHeader = (props) => {
 
     return (
         <div className={classes.InstaHeader}>
-            <img
-                src={props.profile}
-                alt="profile"
+            <div
+                style={{backgroundImage: `url(${props.profile})`}}
                 className={classes.Profile} />
             <div className={classes.Info}>
                 <p><strong>{props.username}</strong></p>

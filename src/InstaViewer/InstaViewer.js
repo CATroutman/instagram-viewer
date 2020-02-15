@@ -16,7 +16,8 @@ class InstaViewer extends Component {
         thumbs: [],
         current: 0,
         profile: '',
-        loading: true
+        loading: true,
+        is_private: false
     }
 
     componentDidMount() {
@@ -27,10 +28,18 @@ class InstaViewer extends Component {
     fetchPostData = () => {
         axios.get(postUrl + this.props.username + toJSON)
             .then(response => {
+                
+                const profile = response.data.graphql.user.profile_pic_url;                
+
+                // check if the user profiler provided is a private acount
+                if (response.data.graphql.user.is_private) {
+                    this.setState({profile: profile, is_private: true, loading: false});
+                    return;
+                }
+
                 const posts = [];
                 const thumbs = [];
                 const instaPosts = response.data.graphql.user.edge_owner_to_timeline_media.edges;
-                const profile = response.data.graphql.user.profile_pic_url;
 
                 let numPosts = instaPosts.length;
 
@@ -99,15 +108,26 @@ class InstaViewer extends Component {
         let posts = 'loading';
         if (!this.state.loading) {
             const curPost = this.state.posts[this.state.current];
-            posts = (
-                <Fragment>
-                    <InstaHeader username={this.props.username} profile={this.state.profile} location={curPost.location} />
-                    <InstaImage src={curPost.src} mediaType={curPost.mediaType} />
-                    <InstaCaption username={this.props.username} caption={curPost.caption}/>
-                    <InstaThumbs thumbs={this.state.thumbs} clicked={this.onThumnailClicked} current={this.state.current}/>
-                </Fragment>
-            );
-                
+
+            if (this.state.is_private) {
+                posts = (
+                    <Fragment>
+                        <InstaHeader username={this.props.username} profile={this.state.profile} />
+                        <div className={classes.Private}>
+                            <p>This account is private</p>
+                        </div>
+                    </Fragment>
+                );
+            } else {
+                posts = (
+                    <Fragment>
+                        <InstaHeader username={this.props.username} profile={this.state.profile} location={curPost.location} />
+                        <InstaImage src={curPost.src} mediaType={curPost.mediaType} />
+                        <InstaCaption username={this.props.username} caption={curPost.caption}/>
+                        <InstaThumbs thumbs={this.state.thumbs} clicked={this.onThumnailClicked} current={this.state.current}/>
+                    </Fragment>
+                );
+            }
         }
 
         return (

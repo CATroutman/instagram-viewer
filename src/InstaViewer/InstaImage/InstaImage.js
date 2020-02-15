@@ -15,7 +15,7 @@ const instaImage = (props) => {
                 className={classes.Image} >Video could not load</video>
         );
     } else {
-        media = <img className={classes.Image} src={props.src} alt="recent instagram posts"/>;
+        media = <div className={classes.Image} style={{backgroundImage: `url(${props.src})`}} />;
     }
 
     return (
