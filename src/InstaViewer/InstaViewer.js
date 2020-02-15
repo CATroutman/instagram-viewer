@@ -117,23 +117,23 @@ class InstaViewer extends Component {
         }
         else {
             const curPost = this.state.posts[this.state.current];
-
-            if (this.state.posts.length < 1) {
-                posts = (
-                    <Fragment>
-                        <InstaHeader username={this.props.username} profile={this.state.profile} />
-                        <div className={classes.Private}>
-                            <p>This account has no posts yet.</p>
-                        </div>
-                    </Fragment>
-                );
-            }
-            else if (this.state.is_private) {
+            
+            if (this.state.is_private) {
                 posts = (
                     <Fragment>
                         <InstaHeader username={this.props.username} profile={this.state.profile} />
                         <div className={classes.Private}>
                             <p>This account is private</p>
+                        </div>
+                    </Fragment>
+                );
+            }
+            else if (this.state.posts.length < 1) {
+                posts = (
+                    <Fragment>
+                        <InstaHeader username={this.props.username} profile={this.state.profile} />
+                        <div className={classes.Private}>
+                            <p>This account has no posts yet.</p>
                         </div>
                     </Fragment>
                 );
