@@ -1,18 +1,29 @@
-.InstaImage {
-    height: 350px;
-    background-color: black;
+.InstaViewer {
+    box-sizing: border-box;
+    height: 600px;
+    width: 354px;
+    border-width: 2px;
+    border-style: solid;
+    border-image: linear-gradient(45deg, #F58529, #8134AF) 1;
+}
+
+.InstaViewer p {
+    margin: 0;
+}
+
+.Private {
     display: flex;
-}
-
-.Image {
+    align-items: center;
+    align-content: center;
+    justify-content: center;
     width: 100%;
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: center;
+    height: 60%;
 }
 
-@media (max-width: 320px) {
-    .InstaImage {
-        height: 320px;
+@media (max-width: 420px) {
+    .InstaViewer {
+        width: 100%;
+        height: auto;
+        border-width: 2px 0px;
     }
 }

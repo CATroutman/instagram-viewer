@@ -24,11 +24,6 @@
     .InstaViewer {
         width: 100%;
         border-width: 2px 0px;
-    }
-}
-
-@media (max-width: 320px) {
-    .InstaViewer {
-        height: 570px;
+        height: auto;
     }
 }
