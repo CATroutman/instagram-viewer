@@ -1,7 +1,7 @@
 .InstaViewer {
     box-sizing: border-box;
     height: 600px;
-    width: 350px;
+    width: 354px;
     border-width: 2px;
     border-style: solid;
     border-image: linear-gradient(45deg, #F58529, #8134AF) 1;
@@ -25,5 +25,10 @@
         width: 100%;
         border-width: 2px 0px;
     }
+}
 
+@media (max-width: 320px) {
+    .InstaViewer {
+        height: 570px;
+    }
 }

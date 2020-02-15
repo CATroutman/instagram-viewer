@@ -4,6 +4,7 @@ import InstaHeader from './InstaHeader/InstaHeader';
 import InstaImage from './InstaImage/InstaImage';
 import InstaCaption from './InstaCaption/InstaCaption';
 import InstaThumbs from './InstaThumbs/InstaThumbs';
+import Spinner from './Spinner/Spinner';
 import axios from 'axios';
 
 const postUrl = 'https://instagram.com/'
@@ -106,10 +107,28 @@ class InstaViewer extends Component {
 
     render() {
         let posts = 'loading';
-        if (!this.state.loading) {
+
+        if (this.state.loading) {
+            posts = (
+                <div style={{height: '100%', display: 'flex', justifyContent: 'center'}}>
+                    <Spinner />
+                </div>
+            );
+        }
+        else {
             const curPost = this.state.posts[this.state.current];
 
-            if (this.state.is_private) {
+            if (this.state.posts.length < 1) {
+                posts = (
+                    <Fragment>
+                        <InstaHeader username={this.props.username} profile={this.state.profile} />
+                        <div className={classes.Private}>
+                            <p>This account has no posts yet.</p>
+                        </div>
+                    </Fragment>
+                );
+            }
+            else if (this.state.is_private) {
                 posts = (
                     <Fragment>
                         <InstaHeader username={this.props.username} profile={this.state.profile} />

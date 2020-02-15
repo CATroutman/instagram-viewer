@@ -10,3 +10,9 @@
     background-repeat: no-repeat;
     background-position: center;
 }
+
+@media (max-width: 320px) {
+    .InstaImage {
+        height: 320px;
+    }
+}
